@@ -1,0 +1,59 @@
+* [33mcommit 01655bd83a4a32fe268c391e4b02910a0c4f5e6e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[31m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[31m|[m Date:   2025-01-30
+[31m|[m 
+[31m|[m     Added README
+[31m|[m   
+[31m|[m * [33mcommit 94199c906781db9d29262350ecae97f739433915[m[33m ([m[1;32mstyle[m[33m)[m
+[31m|[m [32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[31m|[m [32m|[m Date:   2025-01-30
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     Renamed hello.html; moved style.css
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit f16c2b2490a7b3d4a7880472fa0f80729140c2ce[m
+[31m|[m [32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[31m|[m [32m|[m Date:   2025-01-30
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     Included stylesheet into hello.html
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit 476bbba3b4319e97a16d87f7b8c3bf350df14350[m
+[31m|[m[31m/[m  Author: 11Maks22 <m.slobodianuk@gmail.com>
+[31m|[m   Date:   2025-01-30
+[31m|[m   
+[31m|[m       Added css stylesheet
+[31m|[m 
+* [33mcommit dbf6da33818347e4971737e7cff546f37fff707e[m
+[32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[32m|[m Date:   2025-01-30
+[32m|[m 
+[32m|[m     Added copyright statement with email
+[32m|[m 
+* [33mcommit 48022ee3b42825965fd29a85afc99a06ed7b2e56[m[33m ([m[1;33mtag: [m[1;33mv1-beta[m[33m, [m[1;33mtag: [m[1;33mv1[m[33m)[m
+[32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[32m|[m Date:   2025-01-30
+[32m|[m 
+[32m|[m     Added HTML headerL
+[32m|[m 
+* [33mcommit 9bfad3b9798548e543f1f20483ee1b075a537d79[m
+[32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[32m|[m Date:   2025-01-30
+[32m|[m 
+[32m|[m     Added standard HTML page tags
+[32m|[m 
+* [33mcommit 5ac7f44d5423005f2d3d78f4d6778796273a198e[m
+[32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[32m|[m Date:   2025-01-30
+[32m|[m 
+[32m|[m     Unrelated change to c
+[32m|[m 
+* [33mcommit 79665c03c675a8526b0b0d9ef57743aaeca65ddc[m
+[32m|[m Author: 11Maks22 <m.slobodianuk@gmail.com>
+[32m|[m Date:   2025-01-30
+[32m|[m 
+[32m|[m     Changes for a and b
+[32m|[m 
+* [33mcommit 4383f327614be504de7eddad7f69d2d067df0ab4[m
+  Author: 11Maks22 <m.slobodianuk@gmail.com>
+  Date:   2025-01-30
+  
+      Initial Commit
