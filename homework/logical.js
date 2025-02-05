@@ -1,9 +1,10 @@
+/* eslint-disable no-constant-binary-expression */
 
 const num = 10;
 const str = "Здоров був";
 const bool = true;
 const arr = [1, 2, 3];
-const obj = { ім'я: "Тест" };
+const obj = { name: "Тест" };
 
 console.log("Число дорівнює 10:", num == 10);         // true
 console.log("Рядок дорівнює 'Здоров був':", str === "Здоров був"); // true

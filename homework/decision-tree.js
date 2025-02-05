@@ -1,21 +1,21 @@
-let score = 78;
+const score = 78;
 let grade;
 
 if (score >= 90) {
-  grade = "A";
+    grade = "A";
 } else if (score >= 80) {
-  grade = "B";
+    grade = "B";
 } else if (score >= 70) {
-  grade = "C";
+    grade = "C";
 } else if (score >= 60) {
-  grade = "D";
+    grade = "D";
 } else {
-  grade = "F";
+    grade = "F";
 }
 
 console.log("Ваша оцінка:", grade);
 
-let age = 22;
+const age = 22;
 let message;
 
 if (age < 18 && age > 0) {
