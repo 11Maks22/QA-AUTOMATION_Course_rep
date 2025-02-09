@@ -1,5 +1,5 @@
 // Arrays of different types
-const strings = ["BMW", "AUDI", "CITROEN"];
+const strings = ["RENO", "AUDI", "CITROEN"];
 const numbers = [1, 2, 3, 4, 5];
 const booleans = [true, false, true, true];
 const mixed = ["String", 10, true, { name: "object" }];
