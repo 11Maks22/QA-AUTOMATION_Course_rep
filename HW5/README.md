@@ -1,25 +1,25 @@
-# js-eslint-config
-recommended config from me for programming on a JavaScript
+# Lesson 5 - JS Essentials. Part 3
 
-In order to use this config you have to install the following NPM packages
-```
-npm init
-npm i -D @eslint/js eslint globals eslint-plugin-unicorn
-```
+## This lesson covers the following topics:
 
-Then put eslint.config.mjs and .prettierrc into your base directory
+1. **Traditional Function**
+2. **Function expressions**
+3. **Arrow functions**
+4. **Getters and Setter**
+5. **Modules**
 
-you can add a script to your package.json
-```
-"scripts": {
-  "lint": "eslint .",
-  "build": "npm run lint && <build script>",
-}
-```
+## How to Run the Code
 
-**Alternatively**, just copy the content of this folder into your project folder and run
-```
-npm i
-```
+To run the code, follow these steps:
 
-and start coding
+1. Install the necessary dependencies:
+    ```sh
+    npm install
+    ```
+
+2. Execute the JavaScript file:
+    ```sh
+    node src/<filename>.js
+    ```
+
+Replace `<filename>` with the name of the JavaScript file you want to run.
