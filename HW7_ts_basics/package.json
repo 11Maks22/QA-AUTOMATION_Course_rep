@@ -19,8 +19,12 @@
   "description": "## This lesson covers the following topics:",
   "main": "index.js",
   "scripts": {
-    "test": "test"
-  },
+  "lint": "eslint .",
+  "build": "npm run lint && tsc --build"
+},
   "author": "Maks Sloboda",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1"
+  }
 }

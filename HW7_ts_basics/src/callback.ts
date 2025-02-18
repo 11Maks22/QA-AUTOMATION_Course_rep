@@ -1,4 +1,4 @@
-function sayHello(): void {
+function sayHelloMan(): void {
     console.log("   Hello, Mad World!");
 }
 
@@ -28,7 +28,7 @@ function sayJob(job: { role: string; seniority?: string }): void {
     console.log("   You are a ", jobInternal);
 }
 
-sayHello();
+sayHelloMan();
 doSomeJob("Maks Ditrix", 35, { role: 'GeneralQA', seniority: 'Middle' });
 
 console.log("................................");
