@@ -20,7 +20,6 @@ async function fetchDataAsync() {
   
   }
   
-  
   fetchDataAsync()
     .then(processedData => console.log("Processed data:", processedData));
   

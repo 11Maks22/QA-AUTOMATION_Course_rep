@@ -17,7 +17,6 @@ async function fetchDataWithFallback() {
     }
   }
   
-  
   class CustomError extends Error {
     constructor(message) {
       super(message);
@@ -25,9 +24,7 @@ async function fetchDataWithFallback() {
     }
   }
   
-  
   fetchDataWithFallback()
     .then(data => console.log("Data:", data))
     .catch(error => console.error("Final Error:", error));
-  
   

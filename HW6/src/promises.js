@@ -16,7 +16,6 @@ function fetchData() {
     return data.title; //Return something meaningful
   }
   
-  
   fetchData()
     .then(processedData => console.log("Processed data:", processedData))
     .catch(error => console.error("Error:", error));
