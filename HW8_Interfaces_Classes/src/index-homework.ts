@@ -1,6 +1,6 @@
 import { fetchData } from './api-homework';
 import { ProcessedData } from './data-processor-homework';
-import { ExtendedData } from './abstarctions-homework';
+import { ExtendedData } from './abstractions-homework';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 async function main() {

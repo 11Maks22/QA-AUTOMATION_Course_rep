@@ -1,9 +1,4 @@
-import { ProcessedData } from './data-processor-homework';
 import { ApiResponse } from './api-homework';
-
-const exampleData: ApiResponse = { id: 2, name: 'Real name', username: 'Tester Username: ', email: 'This is a test email: ' };
-const processed = new ProcessedData(exampleData);
-console.log(processed);
 
 // Абстрактний клас
 export abstract class BaseEntity {
