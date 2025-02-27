@@ -2,7 +2,7 @@ import { ElectricWaterHeater } from './electric-water-heater';
 import { GasWaterHeater } from './gas-water-heater';
 import { IHeater } from './iheater';
 import { IHeaterBox } from './iheater-box';
-import { MomentumElectricWaterHeater } from './momentum-electric-water-heater';
+import { MomentumElectricWaterHeater } from '../momentum-electric-water-heater';
 
 const boiler = new ElectricWaterHeater(50, '25x25x50');
 
