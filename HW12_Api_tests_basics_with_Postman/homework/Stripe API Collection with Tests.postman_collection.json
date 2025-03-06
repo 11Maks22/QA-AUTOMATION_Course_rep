@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "0f4352b9-cae7-4dfc-92e7-361d2fcfbd73",
+		"name": "Stripe API Fixed Collection with Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13818154"
+	},
+	"item": [
+		{
+			"name": "Create Customer (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contains customer ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.exist;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@example.com"
+						},
+						{
+							"key": "name",
+							"value": "John Doe"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer (PUT)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Updated Name"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers/{CUSTOMER_ID}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"{CUSTOMER_ID}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers/{CUSTOMER_ID}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"{CUSTOMER_ID}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment Intent (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "1000"
+						},
+						{
+							"key": "currency",
+							"value": "usd"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Payment Intent (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents/{PAYMENT_INTENT_ID}/cancel",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents",
+						"{PAYMENT_INTENT_ID}",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers (GET)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contains data array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Refund (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "payment_intent",
+							"value": "{PAYMENT_INTENT_ID}"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/refunds",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"refunds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment Intent (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contains payment intent ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.exist;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "1000"
+						},
+						{
+							"key": "currency",
+							"value": "usd"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Info (GET)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contains account ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.exist;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.stripe.com/v1/account",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balance (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{SECRET_KEY}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.stripe.com/v1/balance",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
