@@ -16,4 +16,8 @@ export class Drum extends MusicalInstrument implements DrumInstrument {
     public play(): void {
         console.log('Барабан грає партію ударних...');
     }
+
+    public stop(): void {
+        console.log('Барабан зупиняє свй ритм...');
+    }
 }

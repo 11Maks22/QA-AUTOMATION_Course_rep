@@ -6,6 +6,6 @@ export abstract class StringedInstrument extends MusicalInstrument {
     }
 
     public tune(): void {
-        console.log(`${this.name} налаштовується...`);
+        console.log(`${this.name} Скрипка налаштовується...`);
     }
 }
