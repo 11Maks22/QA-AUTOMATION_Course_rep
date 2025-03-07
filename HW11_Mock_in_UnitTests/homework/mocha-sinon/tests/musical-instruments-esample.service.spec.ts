@@ -59,25 +59,34 @@ describe('Mocha Mock Tests - Class Example', () => {
         expect(consoleSpy.calledWithMatch(/Барабан зупиняє ритм/i)).to.be.true;
     });
 
-    it('should call performConcert() and trigger play()', () => {
+    it('should call performConcert() and trigger play() with log output', () => {
         const guitar = new Guitar();
         const playSpy = sinon.spy(guitar, 'play');
+
         performConcert(guitar);
+
         expect(playSpy.calledOnce).to.be.true;
+        expect(consoleSpy.calledWithMatch(/playing the guitar/i)).to.be.true;
     });
 
-    it('should call tuneStringInstrument() and trigger tune()', () => {
+    it('should call tuneStringInstrument() and trigger tune() with log output', () => {
         const violin = new Violin();
         const tuneSpy = sinon.spy(violin, 'tune');
+
         tuneStringInstrument(violin);
+
         expect(tuneSpy.calledOnce).to.be.true;
+        expect(consoleSpy.calledWithMatch(/tuning the violin/i)).to.be.true;
     });
 
-    it('should call hitDrum() and trigger hit()', () => {
+    it('should call hitDrum() and trigger hit() with log output', () => {
         const drum = new Drum();
         const hitSpy = sinon.spy(drum, 'hit');
+
         hitDrum(drum);
+
         expect(hitSpy.calledOnce).to.be.true;
+        expect(consoleSpy.calledWithMatch(/hitting the drum/i)).to.be.true;
     });
 });
 
