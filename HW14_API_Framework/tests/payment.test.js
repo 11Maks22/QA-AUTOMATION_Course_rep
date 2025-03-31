@@ -1,21 +1,18 @@
 // tests/payment.test.js
-const stripeApi = require('../src/services/stripeService');
+const { createPaymentIntent, cancelPaymentIntent } = require('../src/api/paymentApi');
 
 describe('Stripe API - Payment Intent', () => {
   let paymentIntentId;
 
   test('Create Payment Intent', async () => {
-    const response = await stripeApi.post('/payment_intents', new URLSearchParams({
-      amount: '1000',
-      currency: 'usd',
-    }));
+    const response = await createPaymentIntent('1000', 'usd');
     expect(response.status).toBe(200);
     expect(response.data).toHaveProperty('id');
     paymentIntentId = response.data.id;
   });
 
   test('Cancel Payment Intent', async () => {
-    const response = await stripeApi.post(`/payment_intents/${paymentIntentId}/cancel`);
+    const response = await cancelPaymentIntent(paymentIntentId);
     expect(response.status).toBe(200);
     expect(response.data).toHaveProperty('status', 'canceled');
   });

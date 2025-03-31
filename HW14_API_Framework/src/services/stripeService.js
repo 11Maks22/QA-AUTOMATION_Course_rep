@@ -1,11 +1,11 @@
-// src/services/stripeService.js
+require('dotenv').config();
+
 const axios = require('axios');
-const { secretKey } = require('../../config/keys');
 
 const stripeApi = axios.create({
   baseURL: 'https://api.stripe.com/v1',
   headers: {
-    Authorization: `Bearer ${secretKey}`,
+    Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
     'Content-Type': 'application/x-www-form-urlencoded',
   },
 });
