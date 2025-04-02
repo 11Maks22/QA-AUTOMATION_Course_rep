@@ -1,47 +1,56 @@
-import { Pact } from '@pact-foundation/pact';
 import path from 'path';
-import axios from 'axios';
+import { Pact, Matchers } from '@pact-foundation/pact';
+const { like } = Matchers;
 
-const provider = new Pact({
-    consumer: 'PetConsumer',
-    provider: 'PetStoreAPI',
-    port: 1236,
-    log: path.resolve(process.cwd(), 'logs', 'pact-post.log'),
-    dir: path.resolve(process.cwd(), 'pacts'),
-    logLevel: 'warn'
-});
+describe('Pact with PetStore API - POST', () => {
+    const provider = new Pact({
+        consumer: 'PetConsumer',
+        provider: 'PetStoreAPI',
+        port: 1235,
+        log: path.resolve(process.cwd(), 'logs', 'pact-post.log'),
+        dir: path.resolve(process.cwd(), 'pacts'),
+        spec: 2
+    });
 
-describe('Pact with PetStore API (POST)', () => {
-    beforeAll(() => provider.setup());
-    afterAll(() => provider.finalize());
-
-    it('should add a new pet via mock provider', async () => {
-        const newPet = {
-            id: 123,
-            name: 'Buddy',
-            status: 'available'
-        };
-
+    beforeAll(async () => {
+        await provider.setup();
         await provider.addInteraction({
-            state: 'provider accepts a new pet',
-            uponReceiving: 'a request to add a pet',
+            state: 'the client wants to create a pet',
+            uponReceiving: 'a request to create a pet',
             withRequest: {
                 method: 'POST',
-                path: '/v2/pet',
+                path: '/pet',
                 headers: { 'Content-Type': 'application/json' },
-                body: newPet
+                body: {
+                    name: 'Garfield',
+                    status: 'available'
+                }
             },
             willRespondWith: {
                 status: 200,
-                body: newPet
+                body: like({
+                    id: 1,
+                    name: 'Garfield',
+                    status: 'available'
+                })
             }
         });
+    });
 
-        const mockUrl = provider.mockService.baseUrl;
-        const response = await axios.post(`${mockUrl}/v2/pet`, newPet);
-        expect(response.data).toHaveProperty('id', 123);
-        expect(response.data.name).toBe('Buddy');
+    afterAll(() => provider.finalize());
 
-        await provider.verify();
+    it('successfully creates a pet', async () => {
+        const response = await fetch('http://localhost:1235/pet', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: 'Garfield', status: 'available' })
+        });
+
+        const text = await response.text();
+        console.log('Response body:', text);
+
+        const body = JSON.parse(text);
+        expect(response.status).toBe(200);
+        expect(body.name).toBe('Garfield');
     });
 });
