@@ -5,11 +5,21 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 
 export default tsEslint.config({
     files: ['**/*.ts'],
+    languageOptions: {
+        parserOptions: {
+            project: './tsconfig.json',
+            sourceType: 'module'
+        }
+    },
     plugins: {
         '@stylistic': stylistic,
         unicorn: eslintPluginUnicorn
     },
-    extends: [eslint.configs.recommended, ...tsEslint.configs.recommended, ...tsEslint.configs.stylistic],
+    extends: [
+        eslint.configs.recommended,
+        ...tsEslint.configs.recommended,
+        ...tsEslint.configs.stylistic
+    ],
     rules: {
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': ['off'],
@@ -50,6 +60,6 @@ export default tsEslint.config({
             {
                 case: 'kebabCase'
             }
-        ],
+        ]
     }
 });

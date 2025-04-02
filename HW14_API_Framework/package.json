@@ -2,16 +2,16 @@
   "name": "stripe-api-tests",
   "version": "1.0.0",
   "description": "ts simple project",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint src/",
-    "lint:fix": "npm run lint -- --fix",
-    "build": "npm run lint && tsc --build",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "build": "tsc --build",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:log": "cross-env LOG_LEVEL=trace CI=true mocha"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@pact-foundation/pact": "^14.0.0",
     "@types/sinon": "^17.0.4",
