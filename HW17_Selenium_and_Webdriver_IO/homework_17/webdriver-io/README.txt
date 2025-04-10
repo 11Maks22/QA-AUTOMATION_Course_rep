@@ -8,13 +8,11 @@
 4. 1 example of using own instance of browser instead of browser provided by wdio cli
 
 ## How to Run the Code
-
 To run the code, follow these steps:
 
 1. Install the necessary dependencies:
 
     npm install
-
 
 2. Execute tests
 
