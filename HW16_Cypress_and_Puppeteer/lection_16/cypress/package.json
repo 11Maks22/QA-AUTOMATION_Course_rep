@@ -1,0 +1,31 @@
+{
+  "name": "lesson7-ts-basics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open --config-file cypress.config.ts",
+    "cy:run": "cypress run --config-file cypress.config.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cypress/webpack-preprocessor": "^6.0.4",
+    "@eslint/js": "^9.20.0",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@stylistic/eslint-plugin-ts": "^3.1.0",
+    "@types/node": "^22.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "cypress": "^14.2.0",
+    "eslint": "^9.20.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.5.0",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.24.0"
+  }
+}
