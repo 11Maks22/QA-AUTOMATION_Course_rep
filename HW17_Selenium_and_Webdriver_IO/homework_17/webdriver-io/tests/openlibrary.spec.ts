@@ -1,45 +1,30 @@
-import OpenLibraryPage from '../src/pages/openlibrary.page';
 import { browser, expect } from '@wdio/globals';
+import HomePage from '../src/pages/home.page';
+import SearchResultsPage from '../src/pages/search-results.page';
+import BookDetailsPage from '../src/pages/book-details.page';
+import AuthorPage from '../src/pages/author.page';
 
-describe('OpenLibrary', () => {
-    it('should show results for "dune frank herbert"', async () => {
-        await OpenLibraryPage.open();
-        await OpenLibraryPage.searchFor('dune frank herbert');
-
-        await OpenLibraryPage.searchResults[0].waitForDisplayed();
-        const resultsCount = await OpenLibraryPage.searchResults.length;
-        expect(resultsCount).toBeGreaterThan(0);
+describe('OpenLibrary UI Navigation Test Suite', () => {
+    beforeEach(async () => {
+        await browser.url('https://openlibrary.org');
     });
 
-    it('should open book details page', async () => {
-        await OpenLibraryPage.open();
-        await OpenLibraryPage.searchFor('dune frank herbert');
-        await OpenLibraryPage.firstResultLink.click();
+    it('should search for a book and view its details', async () => {
+        await HomePage.searchFor('Clean Code');
+        await SearchResultsPage.clickFirstResult();
 
-        const url = await browser.getUrl();
-        expect(url).toContain('/works/');
-
-
+        const title = await BookDetailsPage.getTitleText();
+        console.log('📚 Book title received:', title);
+        expect(title.toLowerCase()).toContain('clean code');
     });
 
-    it('should open Frank Herbert author page', async () => {
-        await OpenLibraryPage.open();
-        await OpenLibraryPage.searchFor('Frank Herbert');
+    it('should navigate from book to author page and verify author name exists', async () => {
+        await HomePage.searchFor('Clean Code');
+        await SearchResultsPage.clickFirstResult();
 
-        await OpenLibraryPage.authorLink.waitForDisplayed();
-        await OpenLibraryPage.authorLink.click();
+        await BookDetailsPage.clickAuthor();
+        const authorName = await AuthorPage.getAuthorName();
 
-        const url = await browser.getUrl();
-        expect(url).toContain('/authors/');
-    });
-
-    it('should display a cover image on the book detail page', async () => {
-        await OpenLibraryPage.open();
-        await OpenLibraryPage.searchFor('dune frank herbert');
-
-        await OpenLibraryPage.firstResultLink.click();
-        await OpenLibraryPage.bookCoverImg.waitForDisplayed();
-        const isDisplayed = await OpenLibraryPage.bookCoverImg.isDisplayed();
-        expect(isDisplayed).toBe(true);
+        expect(authorName).toBeTruthy();
     });
 });
