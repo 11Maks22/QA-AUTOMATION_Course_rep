@@ -28,5 +28,10 @@
     "typeRoots": [
       "node_modules/@types"
     ]                                             /* List of folders to include type definitions from. */
-  }
+  },
+  "include": [
+    "tests/**/*.ts",
+    "src/pages/**/*.ts",
+    "playwright.config.ts"
+  ]
 }
