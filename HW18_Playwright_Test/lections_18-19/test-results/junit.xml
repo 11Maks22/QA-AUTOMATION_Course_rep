@@ -1,0 +1,59 @@
+<testsuites id="" name="" tests="5" failures="1" skipped="4" errors="0" time="11.341339">
+<testsuite name="setup\atlassian-login.setup.ts" timestamp="2025-04-15T08:00:00.766Z" hostname="jira-login" tests="1" failures="1" skipped="0" time="4.935" errors="0">
+<testcase name="Atlassian login › login" classname="setup\atlassian-login.setup.ts" time="4.935">
+<failure message="atlassian-login.setup.ts:5:9 login" type="FAILURE">
+<![CDATA[  [jira-login] › setup\atlassian-login.setup.ts:5:9 › Atlassian login › login ──────────────────────
+
+    Error: locator.fill: value: expected string, got undefined
+
+       at ..\src\pages\atlassian-login.page.ts:55
+
+      53 |
+      54 |         await this.signInButton.click();
+    > 55 |         await this.emailInput.fill(username);
+         |                               ^
+      56 |         await this.continueButton.click();
+      57 |         await this.passwordInput.fill(password);
+      58 |         await this.loginButton.click();
+        at AtlassianLoginPage.login (D:\Automation_Edu\Homeworks\HW18_Playwright_Test\lections_18-19\src\pages\atlassian-login.page.ts:55:31)
+        at D:\Automation_Edu\Homeworks\HW18_Playwright_Test\lections_18-19\tests\setup\atlassian-login.setup.ts:7:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\setup-atlassian-login.setup.ts-Atlassian-login-login-jira-login\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\setup-atlassian-login.setup.ts-Atlassian-login-login-jira-login\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|setup-atlassian-login.setup.ts-Atlassian-login-login-jira-login\test-failed-1.png]]
+
+[[ATTACHMENT|setup-atlassian-login.setup.ts-Atlassian-login-login-jira-login\video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="jira\jira-test-logon.spec.ts" timestamp="2025-04-15T08:00:00.766Z" hostname="jira-test" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Atlassian login › login" classname="jira\jira-test-logon.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Atlassian login › jira is logged in" classname="jira\jira-test-logon.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="jira\jira.spec.ts" timestamp="2025-04-15T08:00:00.766Z" hostname="jira-test" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Jira sample tests with POM and Web Elements › Verify worked on contains not empty summaries" classname="jira\jira.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jira sample tests with POM and Web Elements › Verify tabs are working correctly" classname="jira\jira.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>
