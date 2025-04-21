@@ -1,3 +1,7 @@
 node_modules/
 .env/
 cookies.json
+test-results/
+*.log
+*.trace
+*.zip
