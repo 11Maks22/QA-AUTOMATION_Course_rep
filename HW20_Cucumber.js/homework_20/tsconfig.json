@@ -23,7 +23,7 @@
     "experimentalDecorators": true,               /* Enable experimental support for decorators. */
     /* Type Checking */
     "strict": true,                               /* Enable all strict type-checking options. */
-    //"noImplicitAny": true,                      /* Enable error reporting for expressions and declarations with an implied 'any' type. Commented it to allow ESlint to warn it instead of error */
+    "noImplicitAny": true,                      /* Enable error reporting for expressions and declarations with an implied 'any' type. Commented it to allow ESlint to warn it instead of error */
     "skipLibCheck": true,                         /* Skip type checking all .d.ts files. */
     "noEmit": true,
     "allowImportingTsExtensions": true,
