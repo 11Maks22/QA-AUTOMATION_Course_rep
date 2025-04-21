@@ -7,8 +7,7 @@ let browser: Browser;
 
 BeforeAll(async () => {
     browser = await chromium.launch({
-        headless: true,
-        slowMo: 100 // корисно для дебагу, можеш видалити якщо не треба
+        headless: true
     });
 });
 
