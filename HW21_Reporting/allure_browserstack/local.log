@@ -1,0 +1,13 @@
+"" 
+
+Tue Apr 22 2025 13:56:14:703 GMT+0300 (FLE Daylight Time) -- Binary semantic version is v8.9.14
+Tue Apr 22 2025 13:56:14:703 GMT+0300 (FLE Daylight Time) -- Setting output as extra verbose with request parsing
+Tue Apr 22 2025 13:56:17:16 GMT+0300 (FLE Daylight Time) -- [SUCCESS] You can now access your local server(s) in our remote browser
+
+Tue Apr 22 2025 13:56:17:307 GMT+0300 (FLE Daylight Time) -- Connecting to BrowserStack using WebSocket protocol...
+Tue Apr 22 2025 13:56:17:307 GMT+0300 (FLE Daylight Time) -- Platform supports WebSocket connections.
+
+Tue Apr 22 2025 13:56:17:413 GMT+0300 (FLE Daylight Time) -- Press Ctrl-C to exit
+
+
+Tue Apr 22 2025 13:56:18:236 GMT+0300 (FLE Daylight Time) -- Starting configuration console on http://localhost:45454
