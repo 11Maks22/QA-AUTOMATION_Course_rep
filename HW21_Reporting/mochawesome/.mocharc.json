@@ -1,0 +1,14 @@
+{
+  "require": ["ts-node/register"],
+  "extension": ["ts"],
+  "spec": "tests/**/*.spec.ts",
+  "reporter": "mochawesome",
+  "reporter-option": [
+    "reportDir=mochawesome-report",
+    "reportFilename=mochawesome",
+    "quiet=true",
+    "overwrite=true",
+    "html=true",
+    "json=false"
+  ]
+}
