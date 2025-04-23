@@ -1,0 +1,32 @@
+name: UI Tests in Docker with Playwright
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  run-playwright-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Compose
+        run: docker-compose up -d --build
+
+      - name: Wait for services to be ready
+        run: |
+          echo "Waiting for services..."
+          sleep 30
+          docker ps
+
+      - name: Run Playwright Tests
+        run: docker-compose run --rm playwright-tests
+
+      - name: Upload Playwright HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: ./tests_ui/playwright-report/

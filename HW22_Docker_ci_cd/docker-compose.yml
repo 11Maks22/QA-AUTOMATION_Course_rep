@@ -1,0 +1,109 @@
+services:
+  reportportal-postgres:
+    image: postgres:12
+    container_name: reportportal-postgres
+    environment:
+      POSTGRES_DB: reportportal
+      POSTGRES_USER: rpuser
+      POSTGRES_PASSWORD: rppass
+    volumes:
+      - rp_pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  reportportal-rabbitmq:
+    image: rabbitmq:3.8-management
+    container_name: reportportal-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: unless-stopped
+
+  reportportal-api:
+    image: reportportal/service-api:5.13.5
+    container_name: reportportal-api
+    environment:
+      RP_DB_HOST: reportportal-postgres
+      RP_DB_PORT: 5432
+      RP_DB_NAME: reportportal
+      RP_DB_USER: rpuser
+      RP_DB_PASS: rppass
+      RP_AMQP_HOST: reportportal-rabbitmq
+      RP_AMQP_PORT: 5672
+      RP_ENCRYPTION_KEY: 9X3Opdxqo/yu7+1xnvzdIv/1/Fja9nZ/MeeM25nycMM=
+    depends_on:
+      - reportportal-postgres
+      - reportportal-rabbitmq
+    restart: unless-stopped
+
+  reportportal-ui:
+    image: reportportal/service-ui:latest
+    container_name: reportportal-ui
+    ports:
+      - "8088:8080"
+    environment:
+      RP_SERVER_PORT: 8080
+      RP_API_URL: http://reportportal-api:8585
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  reportportal-analyzer:
+    image: reportportal/service-auto-analyzer:latest
+    container_name: reportportal-analyzer
+    environment:
+      RP_SERVER_PORT: 7878
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  reportportal-gateway:
+    image: reportportal/service-gateway:3.0.0
+    container_name: reportportal-gateway
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  reportportal-authorization:
+    image: reportportal/service-authorization:latest
+    container_name: reportportal-authorization
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  reportportal-jobs:
+    image: reportportal/service-jobs:latest
+    container_name: reportportal-jobs
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  reportportal-index:
+    image: reportportal/service-index:5.13.1
+    container_name: reportportal-index
+    depends_on:
+      - reportportal-api
+    restart: unless-stopped
+
+  playwright-tests:
+    image: mcr.microsoft.com/playwright:v1.41.1-focal
+    container_name: playwright-tests
+    volumes:
+      - ./tests:/tests
+    working_dir: /tests
+    command: ["npx", "playwright", "test"]
+    depends_on:
+      - expense-app
+    restart: unless-stopped
+
+  expense-app:
+    build: ./expense-app
+    container_name: expense-app
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+volumes:
+  rp_pg_data:
