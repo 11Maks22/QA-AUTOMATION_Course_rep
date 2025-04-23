@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./Expense-Tracker-App-With-React.JS
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    working_dir: /usr/src/app
+    command: sh -c "npm install && npm start"
+    networks:
+      - test-net
+
+  ui-tests:
+    build:
+      context: ./tests_ui
+      dockerfile: Dockerfile
+    working_dir: /tests
+    command: npx playwright test
+    depends_on:
+      - app
+    networks:
+      - test-net
+
+networks:
+  test-net:
+    driver: bridge
