@@ -30,4 +30,12 @@ To run the code, follow these steps:
     
     	npm run test:api
         
-    ```
+    
+    Only Contract tests:
+    
+    npm run test:contract
+
+   
+    Only Integration tests:
+    
+    npm run test:integration

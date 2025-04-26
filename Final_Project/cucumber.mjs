@@ -10,11 +10,9 @@ export default {
         snippetInterface: 'async-await'
     },
     paths: [
-        'features/**/*.feature',
         'features/**/*.feature'
     ],
     import: [
-        'src/**/*.ts',
         'src/**/*.ts'
     ],
     retry: 1

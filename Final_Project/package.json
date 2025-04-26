@@ -7,6 +7,8 @@
     "test": "cucumber-js --config cucumber.mjs",
     "test:ui": "cucumber-js --config cucumber.mjs --tags \"@ui\"",
     "test:api": "cucumber-js --config cucumber.mjs --tags \"@api\"",
+    "test:contract": "cucumber-js --config cucumber.mjs --tags \"@contract\"",
+    "test:integration": "cucumber-js --config cucumber.mjs --tags \"@integration\"",
     "report": "node ./reporter.js",
     "posttest": "npm run report"
   },
@@ -36,6 +38,7 @@
     "@types/chai": "^5.2.1",
     "chai": "^5.2.0",
     "node-fetch": "^3.3.2",
-    "playwright": "^1.51.1"
+    "playwright": "^1.51.1",
+    "undici": "^7.8.0"
   }
 }

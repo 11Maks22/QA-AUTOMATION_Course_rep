@@ -10,7 +10,7 @@
     "lib": [
       "ESNext",
       "es6",
-      "DOM"
+      // "DOM"
     ],                                            /* Specify library files to be included in the compilation. */
     "module": "ESNext",                         /* Specify what module code is generated. */
     "rootDir": "./",                             /* Specify the root directory of input files. */
