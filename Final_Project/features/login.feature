@@ -1,3 +1,4 @@
+@ui
 Feature: User login to FOPHelp
 
 Scenario: Користувач успішно авторизується на сайті FOPHelp

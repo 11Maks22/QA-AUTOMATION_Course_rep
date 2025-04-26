@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "cucumber-js --config cucumber.mjs",
+    "test:ui": "cucumber-js --config cucumber.mjs --tags \"@ui\"",
+    "test:api": "cucumber-js --config cucumber.mjs --tags \"@api\"",
     "report": "node ./reporter.js",
     "posttest": "npm run report"
   },
@@ -33,6 +35,7 @@
     "@playwright/test": "^1.51.1",
     "@types/chai": "^5.2.1",
     "chai": "^5.2.0",
+    "node-fetch": "^3.3.2",
     "playwright": "^1.51.1"
   }
 }

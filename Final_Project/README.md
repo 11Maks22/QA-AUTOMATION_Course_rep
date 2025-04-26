@@ -21,4 +21,13 @@ To run the code, follow these steps:
 2. Run tests:
     ```sh
     npm run test
+    
+    Only UI tests:
+    
+    	npm run test:ui
+        
+    Only API tests:
+    
+    	npm run test:api
+        
     ```

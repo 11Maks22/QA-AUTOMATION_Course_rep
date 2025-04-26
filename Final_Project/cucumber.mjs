@@ -9,6 +9,13 @@ export default {
     formatOptions: {
         snippetInterface: 'async-await'
     },
-    import: ['src/**/*.ts'],
-    retry: 2
+    paths: [
+        'features/**/*.feature',
+        'features/**/*.feature'
+    ],
+    import: [
+        'src/**/*.ts',
+        'src/**/*.ts'
+    ],
+    retry: 1
 };
