@@ -8,6 +8,8 @@
     "lint:fix": "npm run lint -- --fix",
     "build": "npm run lint && tsc --build",
     "test": "jest",
+    "test:consumer:get": "ts-node tests/contract/cat-consumer.pact.spec.ts",
+    "test:consumer:post": "ts-node tests/contract/cat-consumer-2.pact.spec.ts",
     "test:log": "cross-env LOG_LEVEL=trace CI=true mocha"
   },
   "author": "",

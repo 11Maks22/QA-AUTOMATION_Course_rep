@@ -7,4 +7,5 @@ module.exports = {
   verbose: true,
   silent: false,  // Дозволяє виводити консолі
   forceExit: true,
+  testTimeout: 15000,
 };
